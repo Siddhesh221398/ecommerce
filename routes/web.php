@@ -11,6 +11,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::resource('product', \App\Http\Controllers\ProductController::class);
         Route::post('/product/status/{product}', [App\Http\Controllers\ProductController::class, 'status'])->name('product.status');
         Route::delete('/product/document/{document}', [App\Http\Controllers\ProductController::class, 'documentDestroy'])->name('product.documentDestroy');
+        Route::get('orders',[App\Http\Controllers\OrderController::class, 'index'])->name('orders.index');
+        Route::get('order/show/{order}',[App\Http\Controllers\OrderController::class, 'show'])->name('order.show');
     });
 });
 
